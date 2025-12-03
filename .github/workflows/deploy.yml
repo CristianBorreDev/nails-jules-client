@@ -42,6 +42,6 @@ jobs:
           script: |
             sudo mkdir -p /var/www/client/dist
             sudo rm -rf /var/www/client/dist/*
-            sudo mv /home/${{ secrets.EC2_USER }}/tmp_build/* /var/www/client/dist/
+            sudo mv /home/${{ secrets.EC2_USER }}/tmp_build/dist/* /var/www/client/dist/
             sudo chown -R www-data:www-data /var/www/client/dist
             sudo chmod -R 755 /var/www/client/dist
