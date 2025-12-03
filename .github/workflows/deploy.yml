@@ -24,6 +24,15 @@ jobs:
       - name: Build Astro project
         run: npm run build
 
+      - name: Copy build to EC2
+        uses: appleboy/scp-action@v0.1.5
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: "dist/*"
+          target: "/home/${{ secrets.EC2_USER }}/tmp_build"
+
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v1.1.0
         with:
@@ -31,6 +40,8 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd /var/www/client
-            rm -rf dist/*
-            cp -r $GITHUB_WORKSPACE/dist/* dist/
+            sudo mkdir -p /var/www/client/dist
+            sudo rm -rf /var/www/client/dist/*
+            sudo mv /home/${{ secrets.EC2_USER }}/tmp_build/* /var/www/client/dist/
+            sudo chown -R www-data:www-data /var/www/client/dist
+            sudo chmod -R 755 /var/www/client/dist

@@ -1,11 +1,149 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// src/pages/index.astro
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Services from "../components/Services.astro";
+import Gallery from "../components/Gallery.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Contact from "../components/Contact.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <!-- Hero Section -->
+  <Hero
+    title="Nails Jules"
+    subtitle="Descubre el arte del cuidado de uñas en manos de expertos. Donde cada detalle cuenta y la elegancia se encuentra con la profesionalidad."
+    ctaText="Reserva tu cita ahora"
+    stats={[
+      { value: "500+", label: "Clientas Felices" },
+      { value: "4.9★", label: "Calificación" },
+      { value: "100%", label: "Higiene Certificada" },
+    ]}
+  />
+
+  <!-- Services Section -->
+  <section id="services" class="scroll-animate">
+    <Services
+      title="Servicios Exclusivos"
+      subtitle="Cada servicio es una experiencia única diseñada para realzar tu belleza natural"
+    />
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="scroll-animate">
+    <Gallery
+      title="Nuestro Arte en Imágenes"
+      subtitle="Inspírate con nuestros trabajos más recientes y encuentra el diseño perfecto para ti"
+    />
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="scroll-animate">
+    <Testimonials
+      title="Lo Que Dicen Nuestras Clientes"
+      subtitle="La satisfacción de nuestras clientas es nuestra mejor recomendación"
+    />
+  </section>
+
+  <!-- CTA Section -->
+  <section id="appointment" class="scroll-animate">
+    <Contact
+      title="¿Lista para lucir unas uñas perfectas?"
+      subtitle="Reserva tu cita en solo 3 pasos y recibe un 10% de descuento en tu primer servicio"
+      ctaText="Reservar ahora con descuento"
+      secondaryText="Consultar disponibilidad"
+    />
+  </section>
+
+  <!-- Contact Section -->
+  <section
+    id="contact"
+    class="scroll-animate py-20 bg-gradient-to-b from-white to-jules-primary/20"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          <span class="text-jules-dark">¿Tienes alguna</span>
+          <span class="text-jules-accent block">pregunta?</span>
+        </h2>
+        <p class="text-lg text-jules-dark/60 max-w-2xl mx-auto">
+          Estamos aquí para ayudarte. Contáctanos por cualquier consulta sobre
+          servicios, precios o disponibilidad.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div
+          class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
+        >
+          <div
+            class="w-14 h-14 rounded-full bg-jules-accent/10 flex items-center justify-center mx-auto mb-4"
+          >
+            <svg
+              class="w-7 h-7 text-jules-accent"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Visítanos</h3>
+          <p class="text-jules-dark/60 text-sm">Av. Principal 1234, Ciudad</p>
+        </div>
+
+        <div
+          class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
+        >
+          <div
+            class="w-14 h-14 rounded-full bg-jules-accent/10 flex items-center justify-center mx-auto mb-4"
+          >
+            <svg
+              class="w-7 h-7 text-jules-accent"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M7 2a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V4a2 2 0 00-2-2H7zm3 14a1 1 0 100-2 1 1 0 000 2z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Llámamos</h3>
+          <a
+            href="tel:+5491112345678"
+            class="text-jules-accent hover:underline text-sm"
+            >+54 9 11 1234-5678</a
+          >
+        </div>
+
+        <div
+          class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
+        >
+          <div
+            class="w-14 h-14 rounded-full bg-jules-accent/10 flex items-center justify-center mx-auto mb-4"
+          >
+            <svg
+              class="w-7 h-7 text-jules-accent"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a3 3 0 01-4.8 2.401A4 4 0 1114 10a1 1 0 102 0c0-1.537-.586-3.07-1.757-4.243zM12 10a2 2 0 10-4 0 2 2 0 004 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Escríbenos</h3>
+          <a
+            href="mailto:hola@nailsjules.com"
+            class="text-jules-accent hover:underline text-sm"
+            >hola@nailsjules.com</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
