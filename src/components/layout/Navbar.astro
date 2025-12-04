@@ -1,0 +1,105 @@
+---
+// src/components/Navbar.astro
+---
+
+<header
+  class="sticky top-0 z-50 bg-jules-primary/95 backdrop-blur-sm border-b border-jules-primary/20 shadow-sm"
+>
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex justify-between items-center py-4">
+      {/* Logo */}
+      <a href="/" class="flex items-center gap-3 group">
+        <div
+          class="w-10 h-10 rounded-full bg-gradient-to-r from-jules-accent to-pink-400 flex items-center justify-center shadow-sm group-hover:shadow transition-shadow"
+        >
+          <span class="text-white font-bold text-lg">NJ</span>
+        </div>
+        <div class="text-2xl font-bold">
+          <span
+            class="text-jules-dark group-hover:text-jules-accent transition-colors duration-200"
+            >Nails</span
+          >
+          <span
+            class="text-jules-accent group-hover:text-jules-dark transition-colors duration-200"
+            >Jules</span
+          >
+        </div>
+      </a>
+
+      {/* Desktop Navigation */}
+      <div class="hidden md:flex items-center gap-8">
+        <a
+          href="#services"
+          class="text-jules-dark/80 hover:text-jules-accent transition-colors font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-jules-accent after:transition-all hover:after:w-full"
+        >
+          Servicios
+        </a>
+        <a
+          href="#appointment"
+          class="bg-jules-accent hover:bg-jules-accent/90 text-white px-6 py-2.5 rounded-xl font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
+        >
+          Reservar Cita
+        </a>
+      </div>
+
+      {/* Mobile Menu Button */}
+      <button
+        id="menuToggle"
+        class="md:hidden text-jules-dark hover:text-jules-accent p-2 rounded-lg hover:bg-jules-primary/50 transition-colors"
+        aria-label="Menú"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    {/* Mobile Menu (Hidden by default) */}
+    <div id="mobileMenu" class="md:hidden hidden border-jules-primary/20">
+      <div class="flex flex-col py-3">
+        <a
+          href="#services"
+          class="px-6 py-3 text-jules-dark hover:text-jules-accent hover:bg-jules-primary/30 transition-colors font-medium border-b border-jules-primary/20"
+        >
+          Servicios
+        </a>
+        <a
+          href="#appointment"
+          class="px-6 py-3 bg-jules-accent text-white hover:bg-jules-accent/90 transition-colors font-medium text-center"
+        >
+          Reservar Cita
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Minimal JavaScript for mobile menu
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close menu when clicking a link
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+    }
+  });
+</script>

@@ -1,0 +1,208 @@
+---
+// src/components/sections/Hero.astro
+const {
+  title = "Nails Jules",
+  subtitle = "Transformamos tus uñas con arte, precisión y dedicación. Experiencia premium en cada detalle.",
+  ctaText = "Reservar mi cita",
+} = Astro.props;
+---
+
+<section
+  class="hero-section relative overflow-hidden bg-linear-to-br from-jules-primary via-white to-pink-50 pt-12 pb-16 md:pb-28"
+  id="hero"
+>
+  {/* Elementos decorativos sutiles */}
+  <div
+    class="absolute top-0 left-0 w-64 h-64 bg-jules-accent/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"
+  >
+  </div>
+  <div
+    class="absolute bottom-0 right-0 w-80 h-80 bg-jules-accent/5 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl"
+  >
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+      {/* Contenido de texto */}
+      <div class="lg:w-1/2 text-center lg:text-left">
+        {/* Badge */}
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-jules-accent/10 text-jules-accent text-sm font-semibold mb-6 md:mb-8"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"
+              clip-rule="evenodd"></path>
+          </svg>
+          Belleza Profesional
+        </div>
+
+        {/* Título principal */}
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <span class="text-jules-dark">{title.split(" ")[0]}</span>
+          <span class="text-jules-accent">{title.split(" ")[1]}</span>
+          <span
+            class="text-jules-dark/80 text-2xl md:text-3xl font-normal mt-4 block"
+          >
+            Experiencia Premium
+          </span>
+        </h1>
+
+        {/* Subtítulo */}
+        <p
+          class="text-lg md:text-xl text-jules-dark/70 mb-8 md:mb-10 leading-relaxed"
+        >
+          {subtitle}
+        </p>
+
+        {/* CTA Principal */}
+        <div class="flex flex-col sm:flex-row gap-4 mb-12">
+          <a
+            href="#appointment"
+            class="hero-cta-primary inline-flex items-center justify-center gap-3 btn-primary px-8 py-4 text-lg rounded-xl font-semibold hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex-1"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            {ctaText}
+          </a>
+
+          <a
+            href="#services"
+            class="hero-cta-secondary inline-flex items-center justify-center gap-3 px-8 py-4 text-lg rounded-xl font-semibold border-2 border-jules-accent text-jules-accent hover:bg-jules-accent/10 transition-all duration-300 flex-1"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+            Ver Servicios
+          </a>
+        </div>
+
+        {/* Estadísticas de confianza */}
+        <div class="hero-stats grid grid-cols-3 gap-4">
+          <div class="text-center">
+            <div class="text-2xl md:text-3xl font-bold text-jules-accent mb-1">
+              500+
+            </div>
+            <div class="text-sm text-jules-dark/60">Clientes Felices</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl md:text-3xl font-bold text-jules-accent mb-1">
+              4.9★
+            </div>
+            <div class="text-sm text-jules-dark/60">Calificación</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl md:text-3xl font-bold text-jules-accent mb-1">
+              100%
+            </div>
+            <div class="text-sm text-jules-dark/60">Higiene</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Imagen Hero */}
+      <div class="lg:w-1/2 relative">
+        <div class="relative">
+          {/* Imagen principal con efecto de marco */}
+          <div
+            class="hero-image relative rounded-3xl overflow-hidden shadow-2xl"
+          >
+            {/* Placeholder de imagen - Reemplazar con imagen real */}
+            <div
+              class="aspect-square bg-linear-to-br from-pink-100 via-white to-jules-primary flex flex-col items-center justify-center p-8"
+            >
+              {/* Icono decorativo */}
+              <div
+                class="w-24 h-24 md:w-32 md:h-32 rounded-full bg-jules-accent/20 flex items-center justify-center mb-6"
+              >
+                <svg
+                  class="w-16 h-16 md:w-20 md:h-20 text-jules-accent"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+
+              {/* Texto placeholder */}
+              <div class="text-center">
+                <h3 class="text-xl font-bold text-jules-dark mb-2">
+                  Manicure de Lujo
+                </h3>
+                <p class="text-jules-dark/60 text-sm max-w-xs">
+                  Diseños exclusivos y acabado profesional
+                </p>
+              </div>
+
+              {/* Elemento decorativo en la esquina */}
+              <div class="absolute top-4 right-4">
+                <div
+                  class="bg-jules-accent text-white text-xs font-bold px-3 py-1 rounded-full"
+                >
+                  ★ Premium
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Elementos decorativos alrededor */}
+          <div
+            class="absolute -top-4 -right-4 w-20 h-20 bg-jules-accent/10 rounded-2xl rotate-12 hidden lg:block"
+          >
+          </div>
+          <div
+            class="absolute -bottom-4 -left-4 w-16 h-16 bg-pink-100/50 rounded-2xl -rotate-12 hidden lg:block"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Indicador de scroll */}
+  <div
+    class="absolute bottom-6 left-1/2 transform -translate-x-1/2 hidden md:block"
+  >
+    <a
+      href="#services"
+      class="hero-scroll-indicator text-jules-dark/40 hover:text-jules-accent transition-colors"
+      aria-label="Ver servicios"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </a>
+  </div>
+</section>

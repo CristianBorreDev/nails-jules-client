@@ -1,8 +1,7 @@
 ---
-// src/layouts/Layout.astro
 import "../styles/global.css";
-import Navbar from "../components/Navbar.astro";
-import Footer from "../components/Footer.astro";
+import Navbar from "../components/layout/Navbar.astro";
+import Footer from "../components/layout/Footer.astro";
 ---
 
 <!doctype html>
@@ -10,42 +9,42 @@ import Footer from "../components/Footer.astro";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Nails Jules | Belleza Profesional de Uñas</title>
-    <meta
+    <title>Nails Jules · Client</title><meta
       name="description"
-      content="Servicios premium de manicure, pedicure y diseño de uñas. Belleza, elegancia y profesionalismo en cada detalle. ¡Reserva tu cita ahora!"
-    />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://nailsjules.com/" />
-    <meta
+      content={Astro.props.description ||
+        "Servicios premium de manicure, pedicure y diseño de uñas. Belleza, elegancia y profesionalismo."}
+    /><meta
       property="og:title"
-      content="Nails Jules | Belleza Profesional de Uñas"
-    />
-    <meta
+      content={`Nails Jules | ${Astro.props.title || "Belleza Profesional"}`}
+    /><meta
       property="og:description"
-      content="Servicios premium de manicure, pedicure y diseño de uñas. ¡Reserva tu cita ahora!"
+      content={Astro.props.description ||
+        "Servicios premium de manicure, pedicure y diseño de uñas."}
+    /><meta property="og:type" content="website" /><meta
+      property="og:image"
+      content="/og-image.jpg"
+    /><link rel="icon" type="image/svg+xml" href="/favicon.svg" /><link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    /><link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    /><link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
     />
-    <meta property="og:image" content="/og-image.jpg" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://nailsjules.com/" />
-    <meta
-      property="twitter:title"
-      content="Nails Jules | Belleza Profesional de Uñas"
-    />
-    <meta
-      property="twitter:description"
-      content="Servicios premium de manicure, pedicure y diseño de uñas. ¡Reserva tu cita ahora!"
-    />
-    <meta property="twitter:image" content="/og-image.jpg" />
   </head>
 
-  <body class="bg-white text-jules-dark antialiased min-h-screen flex flex-col">
+  <!-- Open Graph -->
+
+  <!-- Favicon -->
+
+  <!-- Fonts -->
+
+  <body
+    class="min-h-screen flex flex-col bg-jules-primary text-jules-dark font-sans"
+  >
     <Navbar />
 
     <main class="grow">
@@ -53,107 +52,5 @@ import Footer from "../components/Footer.astro";
     </main>
 
     <Footer />
-
-    <!-- Botón flotante de WhatsApp -->
-    <a
-      href="https://wa.me/5491112345678"
-      target="_blank"
-      class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 z-40 flex items-center justify-center group"
-      aria-label="Contactar por WhatsApp"
-    >
-      <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-        <path
-          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.76.982.998-3.675-.236-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.897 6.994c-.004 5.45-4.438 9.88-9.888 9.88m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.333 11.893-11.893 0-3.18-1.24-6.162-3.491-8.418"
-        ></path>
-      </svg>
-      <span
-        class="absolute -top-10 right-0 bg-green-500 text-white text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
-      >
-        ¡Escribinos!
-      </span>
-    </a>
-
-    <!-- Scripts globales -->
-    <script>
-      // Smooth scroll para enlaces internos
-      document.addEventListener("DOMContentLoaded", () => {
-        // Animación de elementos al hacer scroll
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: "0px 0px -50px 0px",
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("animate-fadeInUp");
-            }
-          });
-        }, observerOptions);
-
-        // Observar elementos con la clase .scroll-animate
-        document.querySelectorAll(".scroll-animate").forEach((el) => {
-          observer.observe(el);
-        });
-
-        // Cambiar estilo del navbar al hacer scroll
-        const header = document.querySelector("header");
-        if (header) {
-          window.addEventListener("scroll", () => {
-            if (window.scrollY > 100) {
-              header.classList.add("shadow-lg", "bg-white");
-              header.classList.remove("bg-white/95");
-            } else {
-              header.classList.remove("shadow-lg", "bg-white");
-              header.classList.add("bg-white/95");
-            }
-          });
-        }
-      });
-
-      // Prevenir envío de formularios por defecto (para demo)
-      document.addEventListener("submit", (e: any) => {
-        if (e.target.matches("form")) {
-          e.preventDefault();
-          alert("¡Formulario enviado! (Esto es una demostración)");
-        }
-      });
-    </script>
   </body>
 </html>
-
-<style>
-  /* Animaciones globales */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fadeInUp {
-    animation: fadeInUp 0.6s ease-out forwards;
-  }
-
-  /* Estilos para scrollbar personalizada (si se usa la global.css anterior) */
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: var(--color-jules-primary);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: var(--color-jules-accent);
-    border-radius: 5px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: color-mix(in srgb, var(--color-jules-accent) 80%, black);
-  }
-</style>

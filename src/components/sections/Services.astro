@@ -1,0 +1,163 @@
+---
+// src/components/sections/Services.astro
+interface Props {
+  services?: Array<{
+    id: number;
+    name: string;
+    description?: string;
+    duration: number;
+    price: number;
+  }>;
+}
+
+const { services = [] } = Astro.props;
+---
+
+<section id="services" class="py-16 md:py-24 bg-white scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Encabezado -->
+    <div class="text-center mb-12 md:mb-16">
+      <div
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-jules-accent/10 text-jules-accent text-sm font-semibold mb-4"
+      >
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <path
+            fill-rule="evenodd"
+            d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+            clip-rule="evenodd"></path>
+        </svg>
+        Servicios Premium
+      </div>
+
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        <span class="text-jules-dark">Nuestros</span>
+        <span class="text-jules-accent block">Servicios</span>
+      </h2>
+
+      <p class="text-lg text-jules-dark/60 max-w-2xl mx-auto">
+        Descubre nuestra gama completa de tratamientos profesionales
+      </p>
+    </div>
+
+    <!-- Grid de servicios -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        services.length > 0 ? (
+          services.map((service) => (
+            <div class="group bg-white rounded-xl border border-jules-primary/20 p-6 hover:border-jules-accent/30 hover:shadow-lg transition-all duration-300">
+              <div class="flex flex-col h-full">
+                {/* Encabezado del servicio */}
+                <div class="mb-4">
+                  <h3 class="text-xl font-bold text-jules-dark mb-2 group-hover:text-jules-accent transition-colors">
+                    {service.name}
+                  </h3>
+                  <p class="text-jules-dark/60 text-sm mb-3">
+                    {service.description ||
+                      "Servicio profesional de alta calidad"}
+                  </p>
+                </div>
+
+                {/* Detalles del servicio */}
+                <div class="mt-auto">
+                  <div class="flex justify-between items-center mb-4">
+                    <div>
+                      <span class="text-2xl font-bold text-jules-accent">
+                        ${service.price}
+                      </span>
+                      <span class="text-jules-dark/50 text-sm ml-2">ARS</span>
+                    </div>
+                    <span class="text-jules-dark/50 text-sm">
+                      {service.duration} min
+                    </span>
+                  </div>
+
+                  {/* Botón de reserva */}
+                  <a
+                    href="#appointment"
+                    class="w-full inline-flex items-center justify-center gap-2 bg-jules-accent hover:bg-jules-accent/90 text-white py-3 px-4 rounded-lg font-medium text-sm hover:gap-3 transition-all"
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    Reservar este servicio
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))
+        ) : (
+          /* Estado de carga o sin servicios */
+          <div class="col-span-full text-center py-12">
+            <div class="inline-block animate-pulse">
+              <div class="w-12 h-12 bg-jules-primary/50 rounded-full mx-auto mb-4" />
+            </div>
+            <p class="text-jules-dark/60">Cargando servicios...</p>
+          </div>
+        )
+      }
+    </div>
+
+    {/* Nota informativa */}
+    <div class="mt-12 pt-8 border-t border-jules-primary/20 text-center">
+      <div
+        class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8"
+      >
+        <div class="flex items-center gap-2 text-jules-dark/50 text-sm">
+          <svg
+            class="w-4 h-4 text-jules-accent"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span>Materiales premium</span>
+        </div>
+
+        <div class="hidden sm:block text-jules-primary/30">•</div>
+
+        <div class="flex items-center gap-2 text-jules-dark/50 text-sm">
+          <svg
+            class="w-4 h-4 text-jules-accent"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span>Higiene certificada</span>
+        </div>
+
+        <div class="hidden sm:block text-jules-primary/30">•</div>
+
+        <div class="flex items-center gap-2 text-jules-dark/50 text-sm">
+          <svg
+            class="w-4 h-4 text-jules-accent"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span>Profesionales calificados</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
